@@ -2,8 +2,6 @@
 # https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
 #
 # Binaries for programs and plugins
-*.exe
-*.exe~
 *.dll
 *.so
 *.dylib
@@ -11,22 +9,46 @@
 # Test binary, built with `go test -c`
 *.test
 
-# Code coverage profiles and other test artifacts
+# IDE and editor files
+.vscode/
+.idea/
 *.out
-coverage.*
-*.coverprofile
-profile.cov
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Generated desktop applications
+*.app/
+*.exe
+*.deb
+*.rpm
+*.dmg
+*.pkg
+
+# Build artifacts
+bin/
+build/
+dist/
 
 # Go workspace file
 go.work
 go.work.sum
 
-# env file
-.env
+# Configuration files (keep templates, ignore instances)
+config.json
+*.local.json
 
-# Editor/IDE
-# .idea/
-# .vscode/
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Backup files
+*.bak
+*.backup
