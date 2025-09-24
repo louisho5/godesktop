@@ -14,7 +14,7 @@ Build Size:
 
 **MacOS (Darwin)**
 
-Download the latest "godesktop" release from the [releases page](https://github.com/louisho51/godesktop/releases).
+Download the latest "godesktop" release from the [releases page](https://github.com/louisho5/godesktop/releases).
 
 ```bash
 # Create app from URL
@@ -26,7 +26,7 @@ Download the latest "godesktop" release from the [releases page](https://github.
 
 **Windows 10/11**
 
-Download the latest "godesktop.exe" release from the [releases page](https://github.com/louisho51/godesktop/releases).
+Download the latest "godesktop.exe" release from the [releases page](https://github.com/louisho5/godesktop/releases).
 
 ```bash
 # Create app from URL
