@@ -6,8 +6,10 @@
 
 Single portable binary, no dependencies. Alternatives to [nativefier](https://github.com/nativefier/nativefier) but faster and smaller.
 
-**Run and Done:** `./godesktop -name "GitHub" -url "https://github.com"`
-
+**Run then done**
+```bash
+./godesktop -url "https://github.com"`
+```
 
 ## Quick Start
 
@@ -67,7 +69,7 @@ godesktop [flags]
 
 ```bash
 # Clone and build in one command
-git clone <repo-url>
+git clone github.com/louisho5/godesktop.git
 
 # Step 1: Rebuild the MacOS runner (Optional)
 go build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
