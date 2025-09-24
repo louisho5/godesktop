@@ -1,10 +1,12 @@
 # GoDesktop CLI
 
-A CLI tool to create native lightweight desktop apps from web content using Go and webview.
+#### A CLI tool to create native lightweight desktop apps from web content using Go and webview.
+
+![GoDesktop](platforms/mac/icon.png)
 
 Single portable binary, no dependencies. Alternatives to Nativefier but faster and smaller.
 
-**Web to App with** `./godesktop -name "GitHub" -url "https://github.com"`
+**Run and Done:** `./godesktop -name "GitHub" -url "https://github.com"`
 
 
 ## Quick Start
