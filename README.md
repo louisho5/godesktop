@@ -4,7 +4,7 @@
 
 ![GoDesktop](platforms/mac/icon.png)
 
-Single portable binary, no dependencies. Alternatives to Nativefier but faster and smaller.
+Single portable binary, no dependencies. Alternatives to [nativefier](https://github.com/nativefier/nativefier) but faster and smaller.
 
 **Run and Done:** `./godesktop -name "GitHub" -url "https://github.com"`
 
@@ -88,7 +88,6 @@ GoDesktop is built with Go and uses the following excellent libraries:
 #### Core Libraries
 - **[webview/webview_go](https://github.com/webview/webview_go)** - Cross-platform webview library for macOS
 - **[jchv/go-webview2](https://github.com/jchv/go-webview2)** - WebView2 bindings for Windows
-- **Go Standard Library** - No external dependencies for the CLI itself
 
 #### System Requirements
 - **Go 1.24+** for building
