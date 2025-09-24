@@ -63,9 +63,9 @@ godesktop [flags]
 - **Recommended size**: 512x512 or 1024x1024 pixels for best quality
 
 
-### For Development
+## Development
 
-## Build the CLI
+### Build the CLI
 
 ```bash
 # Clone and build in one command
@@ -81,8 +81,6 @@ cd godesktop
 go build -o ./godesktop main.go
 ```
 
-## Build with Go and Libraries
-
 ### Dependencies
 
 GoDesktop is built with Go and uses the following excellent libraries:
@@ -96,8 +94,8 @@ GoDesktop is built with Go and uses the following excellent libraries:
 - **macOS**: Uses native WebKit framework
 - **Windows**: Requires WebView2 runtime (usually pre-installed on Windows 10/11)
 
-## How It Works
 
+## How It Works
 
 ### Architecture Overview
 
@@ -135,9 +133,12 @@ GoDesktop uses a two-stage architecture for maximum efficiency:
 
 ### Size Comparison
 
-| Approach | Bundle Size | Runtime | Dependencies |
-|----------|-------------|---------|--------------|
-| **GoDesktop** | **3-7MB** | **System WebView** |
+| Approach | Bundle Size | Runtime |
+|----------|-------------|---------|
+| **GoDesktop** | **~3MB** | **System WebView** |
 | Electron | ~100MB | Bundled Chromium |
 
 The resulting apps are **completely self-contained** and behave like native applications
+
+## License
+MIT
