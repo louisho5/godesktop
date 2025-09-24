@@ -2,11 +2,10 @@
 
 A CLI tool to create native lightweight desktop apps from web content using Go and webview.
 
-**Single portable binary, no dependencies. Alternatives to Nativefier but faster and smaller.**
+Single portable binary, no dependencies. Alternatives to Nativefier but faster and smaller.
 
-Build Size:
-- MacOS ~3MB
-- Windows ~3MB
+**Web to App with** `./godesktop -name "GitHub" -url "https://github.com"`
+
 
 ## Quick Start
 
@@ -54,7 +53,7 @@ godesktop [flags]
 
 ### Icon Support
 
-GoDesktop only handles icon conversion for macOS:
+*GoDesktop only handles icon conversion for macOS:*
 
 - **PNG files**: Accepts .png files with all required sizes
 - **Recommended size**: 512x512 or 1024x1024 pixels for best quality
