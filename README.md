@@ -117,11 +117,11 @@ GoDesktop uses a two-stage architecture for maximum efficiency:
 ### Technical Chain
 
 ```
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│   Your Website  │     │   GoDesktop CLI  │     │  Native Desktop │
+┌─────────────────┐     ┌──────────────────┐    ┌─────────────────┐
+│   Your Website  │     │   GoDesktop CLI  │    │  Native Desktop │
 │                 │───▶│                  │───▶│      App        │
-│ https://...     │     │  Embedded Runner │     │   WebView GUI   │
-└─────────────────┘     └──────────────────┘     └─────────────────┘
+│ https://...     │     │  Embedded Runner │    │   WebView GUI   │
+└─────────────────┘     └──────────────────┘    └─────────────────┘
 ```
 
 **Why this approach works:**
