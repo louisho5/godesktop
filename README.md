@@ -78,14 +78,22 @@ godesktop [flags]
 git clone <repo-url>
 cd godesktop
 
-# Step 1A: Rebuild the MacOS runner (Optional)
-go build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
-# Step 1B: Rebuild the Windows runner (Optional) or run the build.bat script
-$env:GOOS="windows"; $env:GOARCH="amd64"; go build -ldflags="-H=windowsgui" -o platforms/windows/runner/runner.exe platforms/windows/runner/runner.go
+======== MacOS
 
-# Step 2A: Build the CLI for macOS
+# Step 1: Rebuild the MacOS runner (Optional)
+go build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
+
+# Step 2: Build the CLI for macOS
 go build -o ./godesktop main.go
-# Step 2B: Build the CLI for Windows
+
+======== Windows
+
+# Step 1A (Select one): Rebuild the Windows runner (Optional)
+$env:GOOS="windows"; $env:GOARCH="amd64"; go build -ldflags="-H=windowsgui" -o platforms/windows/runner/runner.exe platforms/windows/runner/runner.go
+# Step 1B (Select one): Run the build.bat script (Optional)
+cd ".\platforms\windows\runner"; .\build.bat; cd ../../../
+
+# Step 2: Build the CLI for Windows
 $env:GOOS="windows"; $env:GOARCH="amd64"; go build -o ./godesktop.exe main.go
 ```
 
