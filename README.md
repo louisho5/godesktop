@@ -29,6 +29,9 @@ chmod +x godesktop
 # Create app from URL
 ./godesktop -name "GitHub" -url "https://github.com"
 
+# Create app from static HTML file
+./godesktop -name "My HTML" -url "index.html"
+
 # Create app with custom icon
 ./godesktop -name "My App" -url "https://example.com" -icon "icon.png" -width 900 -height 700
 ```
@@ -40,6 +43,9 @@ Download the latest "godesktop.exe" release from the [releases page](https://git
 ```bash
 # Create app from URL
 .\godesktop.exe -name "GitHub" -url "https://github.com"
+
+# Create app from static HTML file
+.\godesktop.exe -name "My HTML" -url "index.html"
 
 # Create app with custom icon
 .\godesktop.exe -name "My App" -url "https://example.com" -width 900 -height 700
@@ -58,7 +64,7 @@ godesktop [flags]
 | `-name` | string | "GoDesktop" | Application name |
 | `-width` | int | 1200 | Window width in pixels |
 | `-height` | int | 800 | Window height in pixels |
-| `-url` | string | - | URL to navigate to (required) |
+| `-url` | string | - | URL to navigate to (required). Use "index.html" to serve a static site. |
 | `-icon` | string | - | Path to icon file (.png) |
 
 ### Icon Support
@@ -150,7 +156,7 @@ GoDesktop uses a two-stage architecture for maximum efficiency:
 
 | Approach | Bundle Size | Runtime |
 |----------|-------------|---------|
-| **GoDesktop** | **~3-7MB** | **System WebView** |
+| **GoDesktop** | **~3-8MB** | **System WebView** |
 | Electron | ~100MB | Bundled Chromium |
 
 The resulting apps are **completely self-contained** and behave like native applications
