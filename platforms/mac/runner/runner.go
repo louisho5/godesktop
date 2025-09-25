@@ -45,7 +45,9 @@ func main() {
 	finalURL := config.URL
 	if !strings.HasPrefix(config.URL, "http://") && !strings.HasPrefix(config.URL, "https://") {
 		// It's a local file, start a local server
-		serverURL, err := startLocalServer(filepath.Dir(execPath))
+		// Get the app bundle root directory instead of the executable directory
+		appDir := getAppBundleRoot(execPath)
+		serverURL, err := startLocalServer(appDir)
 		if err != nil {
 			log.Fatal("Failed to start local server:", err)
 		}
@@ -89,4 +91,20 @@ func startLocalServer(dir string) (string, error) {
 	}()
 
 	return serverURL, nil
+}
+
+// getAppBundleRoot returns the root directory of the macOS app bundle
+// If the executable is in MyApp.app/Contents/MacOS/runner, this returns the directory containing MyApp.app
+func getAppBundleRoot(execPath string) string {
+	dir := filepath.Dir(execPath)
+	
+	// Check if we're inside a macOS app bundle (Contents/MacOS)
+	if strings.HasSuffix(dir, "Contents/MacOS") {
+		// Go up two levels: Contents/MacOS -> Contents -> MyApp.app -> parent directory
+		appBundleDir := filepath.Dir(filepath.Dir(dir))
+		return filepath.Dir(appBundleDir)
+	}
+	
+	// If not in an app bundle, just return the executable directory
+	return dir
 }
