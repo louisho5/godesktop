@@ -4,9 +4,12 @@
 
 ![GoDesktop](platforms/mac/icon.png)
 
-Single portable binary, no dependencies. Alternatives to [nativefier](https://github.com/nativefier/nativefier) but faster and smaller.
+✅ Single portable binary — no dependencies, no runtime required.
 
-**Run then done**
+✅ Alternatives to [nativefier](https://github.com/nativefier/nativefier) but faster and smaller.
+
+✅ Drop in a URL, get a desktop app.
+
 ```bash
 ./godesktop -url "https://github.com"`
 ```
