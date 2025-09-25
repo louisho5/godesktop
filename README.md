@@ -1,12 +1,18 @@
 # GoDesktop CLI
 
-A CLI tool to create native lightweight desktop apps from web content using Go and webview.
+#### A CLI tool to create native lightweight desktop apps from a URL.
 
-**Single portable binary, no dependencies. Alternatives to Nativefier but faster and smaller.**
+![GoDesktop](platforms/mac/icon.png)
 
-Build Size:
-- MacOS ~3-4MB
-- Windows ~6-7MB
+✅ Single portable binary — no dependencies, no runtime required.
+
+✅ Alternatives to [nativefier](https://github.com/nativefier/nativefier) but faster and smaller.
+
+✅ Drop in a URL, get a desktop app.
+
+```bash
+./godesktop -url "https://github.com"
+```
 
 ## Quick Start
 
@@ -14,9 +20,12 @@ Build Size:
 
 **MacOS (Darwin)**
 
-Download the latest "godesktop" release from the [releases page](https://github.com/louisho51/godesktop/releases).
+Download the latest "godesktop" release from the [releases page](https://github.com/louisho5/godesktop/releases).
 
 ```bash
+# Changer permissions to make it executable
+chmod +x godesktop
+
 # Create app from URL
 ./godesktop -name "GitHub" -url "https://github.com"
 
@@ -26,7 +35,7 @@ Download the latest "godesktop" release from the [releases page](https://github.
 
 **Windows 10/11**
 
-Download the latest "godesktop.exe" release from the [releases page](https://github.com/louisho51/godesktop/releases).
+Download the latest "godesktop.exe" release from the [releases page](https://github.com/louisho5/godesktop/releases).
 
 ```bash
 # Create app from URL
@@ -54,33 +63,29 @@ godesktop [flags]
 
 ### Icon Support
 
-GoDesktop only handles icon conversion for macOS:
+*GoDesktop only handles icon conversion for macOS:*
 
 - **PNG files**: Accepts .png files with all required sizes
 - **Recommended size**: 512x512 or 1024x1024 pixels for best quality
 
 
-### For Development
+## Development
 
-## Build the CLI
+### Build the CLI
 
 ```bash
 # Clone and build in one command
-git clone <repo-url>
-cd godesktop
+git clone github.com/louisho5/godesktop.git
 
-# Step 1A: Rebuild the MacOS runner (Optional)
+# Step 1: Rebuild the MacOS runner (Optional)
 go build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
-# Step 1B: Rebuild the Windows runner (Optional) or run the build.bat script
-$env:GOOS="windows"; $env:GOARCH="amd64"; go build -o platforms/windows/runner/runner.exe platforms/windows/runner/runner.go
+# Step 2: Rebuild the Windows runner (Optional) or run the build.bat script
+go build -o platforms/windows/runner/runner.exe platforms/windows/runner/runner.go
 
-# Step 2A: Build the CLI for macOS
+# Step 3: Build the CLI
+cd godesktop
 go build -o ./godesktop main.go
-# Step 2B: Build the CLI for Windows
-$env:GOOS="windows"; $env:GOARCH="amd64"; go build -o ./godesktop.exe main.go
 ```
-
-## Build with Go and Libraries
 
 ### Dependencies
 
@@ -89,15 +94,13 @@ GoDesktop is built with Go and uses the following excellent libraries:
 #### Core Libraries
 - **[webview/webview_go](https://github.com/webview/webview_go)** - Cross-platform webview library for macOS
 - **[jchv/go-webview2](https://github.com/jchv/go-webview2)** - WebView2 bindings for Windows
-- **Go Standard Library** - No external dependencies for the CLI itself
 
 #### System Requirements
 - **Go 1.24+** for building
-- **macOS**: Uses native WebKit framework
-- **Windows**: Requires WebView2 runtime (usually pre-installed on Windows 10/11)
+- **macOS**: Uses native WebKit framework (xcode command line tools required)
+- **Windows**: Requires WebView2 runtime (pre-installed on Windows 10/11)
 
 ## How It Works
-
 
 ### Architecture Overview
 
@@ -119,11 +122,11 @@ GoDesktop uses a two-stage architecture for maximum efficiency:
 ### Technical Chain
 
 ```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Your Website  │    │   GoDesktop CLI  │    │  Native Desktop │
+┌─────────────────┐     ┌──────────────────┐    ┌─────────────────┐
+│   Your Website  │     │   GoDesktop CLI  │    │  Native Desktop │
 │                 │───▶│                  │───▶│      App        │
-│ https://...     │    │  Embedded Runner │    │   WebView GUI   │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
+│ https://...     │     │  Embedded Runner │    │   WebView GUI   │
+└─────────────────┘     └──────────────────┘    └─────────────────┘
 ```
 
 **Why this approach works:**
@@ -135,9 +138,12 @@ GoDesktop uses a two-stage architecture for maximum efficiency:
 
 ### Size Comparison
 
-| Approach | Bundle Size | Runtime | Dependencies |
-|----------|-------------|---------|--------------|
-| **GoDesktop** | **3-7MB** | **System WebView** |
+| Approach | Bundle Size | Runtime |
+|----------|-------------|---------|
+| **GoDesktop** | **~3MB** | **System WebView** |
 | Electron | ~100MB | Bundled Chromium |
 
 The resulting apps are **completely self-contained** and behave like native applications
+
+## License
+MIT
