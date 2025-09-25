@@ -23,6 +23,9 @@
 Download the latest "godesktop" release from the [releases page](https://github.com/louisho5/godesktop/releases).
 
 ```bash
+# Add execute permissions
+chmod +x godesktop
+
 # Create app from URL
 ./godesktop -name "GitHub" -url "https://github.com"
 
