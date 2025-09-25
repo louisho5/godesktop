@@ -94,9 +94,8 @@ GoDesktop is built with Go and uses the following excellent libraries:
 
 #### System Requirements
 - **Go 1.24+** for building
-- **macOS**: Uses native WebKit framework
+- **macOS**: Uses native WebKit framework (xcode command line tools required)
 - **Windows**: Requires WebView2 runtime (pre-installed on Windows 10/11)
-
 
 ## How It Works
 
