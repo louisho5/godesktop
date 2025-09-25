@@ -26,7 +26,7 @@ func main() {
 
 	fmt.Println("GoDesktop CLI - Create native lightweight desktop apps from web content")
 	fmt.Println("Help: ./godesktop -help \n")
-	fmt.Println("Example: ./godesktop -name 'GitHub' -url 'https://github.com' \n")
+	fmt.Println(`Example: ./godesktop -name "GitHub" -url "https://github.com" \n`)
 
 	// Validate input
 	if config.URL == "" {
