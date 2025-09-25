@@ -30,7 +30,7 @@ chmod +x godesktop
 ./godesktop -name "GitHub" -url "https://github.com"
 
 # Create app with custom icon
-./godesktop -name "My App" -url "https://example.com" -icon 'icon.png' -width 900 -height 700
+./godesktop -name "My App" -url "https://example.com" -icon "icon.png" -width 900 -height 700
 ```
 
 **Windows 10/11**
@@ -140,7 +140,7 @@ GoDesktop uses a two-stage architecture for maximum efficiency:
 
 | Approach | Bundle Size | Runtime |
 |----------|-------------|---------|
-| **GoDesktop** | **~3MB** | **System WebView** |
+| **GoDesktop** | **~3-7MB** | **System WebView** |
 | Electron | ~100MB | Bundled Chromium |
 
 The resulting apps are **completely self-contained** and behave like native applications
