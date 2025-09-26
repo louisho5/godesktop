@@ -90,14 +90,14 @@ go install mvdan.cc/garble@latest
 ======== MacOS
 
 # Step 1A: Rebuild the MacOS runner (Zsh)
-go build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
+env GOOS=darwin GOARCH=amd64 go build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
 # Step 1B: Rebuild the MacOS runner (Garble)
-garble build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
+env GOOS=darwin GOARCH=amd64 garble build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
 
 # Step 2A: Build the CLI for macOS (Zsh)
-go build -o ./godesktop main.go
+env GOOS=darwin GOARCH=amd64 go build -o ./godesktop main.go
 # Step 2B: Build the CLI for macOS (Garble)
-garble build -o ./godesktop main.go
+env GOOS=darwin GOARCH=amd64 garble build -o ./godesktop main.go
 
 ======== Windows
 
