@@ -23,7 +23,7 @@
 Download the latest "godesktop" release from the [releases page](https://github.com/louisho5/godesktop/releases).
 
 ```bash
-# Changer permissions to make it executable
+# Change permissions to make it executable
 chmod +x godesktop
 sudo xattr -r -d com.godesktop.builder godesktop
 sudo codesign --force --deep --sign - godesktop
