@@ -39,8 +39,6 @@ func main() {
 
 	// Validate input
 	if config.URL == "" {
-		fmt.Println("Error: -url must be provided")
-		fmt.Println()
 		fmt.Println("Enter a URL to navigate to: ")
 		fmt.Scanln(&config.URL)
 		config.URL = strings.TrimSpace(config.URL)

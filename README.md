@@ -84,23 +84,32 @@ godesktop [flags]
 git clone <repo-url>
 cd godesktop
 
+# Requires garble (https://github.com/burrowers/garble)
+go install mvdan.cc/garble@latest
+
 ======== MacOS
 
-# Step 1: Rebuild the MacOS runner (Optional)
+# Step 1A: Rebuild the MacOS runner (Zsh)
 go build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
+# Step 1B: Rebuild the MacOS runner (Garble)
+garble build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
 
-# Step 2: Build the CLI for macOS
+# Step 2A: Build the CLI for macOS (Zsh)
 go build -o ./godesktop main.go
+# Step 2B: Build the CLI for macOS (Garble)
+garble build -o ./godesktop main.go
 
 ======== Windows
 
-# Step 1A (Select one): Rebuild the Windows runner (Optional)
-$env:GOOS="windows"; $env:GOARCH="amd64"; go build -ldflags="-H=windowsgui" -o platforms/windows/runner/runner.exe platforms/windows/runner/runner.go
-# Step 1B (Select one): Run the build.bat script (Optional)
-cd ".\platforms\windows\runner"; .\build.bat; cd ../../../
+# Step 1A (Select one): Rebuild the Windows runner (Powershell)
+$env:GOOS="windows"; $env:GOARCH="amd64"; go build -ldflags="-H=windowsgui -s -w" -o platforms/windows/runner/runner.exe platforms/windows/runner/runner.go
+# Step 1B (Select one): Run the build.bat script (Garble)
+$env:GOOS="windows"; $env:GOARCH="amd64"; garble build -ldflags="-H=windowsgui -s -w" -o platforms/windows/runner/runner.exe platforms/windows/runner/runner.go
 
-# Step 2: Build the CLI for Windows
+# Step 2A: Build the CLI for Windows (Powershell)
 $env:GOOS="windows"; $env:GOARCH="amd64"; go build -o ./godesktop.exe main.go
+# Step 3B: Build the CLI for Windows (Garble)
+$env:GOOS="windows"; $env:GOARCH="amd64"; garble build -o ./godesktop.exe main.go
 ```
 
 ### Dependencies
@@ -110,9 +119,10 @@ GoDesktop is built with Go and uses the following excellent libraries:
 #### Core Libraries
 - **[webview/webview_go](https://github.com/webview/webview_go)** - Cross-platform webview library for macOS
 - **[jchv/go-webview2](https://github.com/jchv/go-webview2)** - WebView2 bindings for Windows
+- **[mvdan.cc/garble](https://github.com/burrowers/garble)** - Garble is a tool for building statically linked binaries
 
 #### System Requirements
-- **Go 1.24+** for building
+- **Go 1.25+** for building
 - **macOS**: Uses native WebKit framework (xcode command line tools required)
 - **Windows**: Requires WebView2 runtime (pre-installed on Windows 10/11)
 
