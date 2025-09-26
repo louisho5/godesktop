@@ -25,7 +25,7 @@ Download the latest "godesktop" release from the [releases page](https://github.
 ```bash
 # Change permissions to make it executable
 chmod +x godesktop
-sudo /usr/bin/xattr -rd com.apple.quarantine "./godesktop"
+sudo /usr/bin/xattr -rd com.apple.quarantine ./godesktop
 
 # Create app from URL
 ./godesktop -name "GitHub" -url "https://github.com"
