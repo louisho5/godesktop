@@ -99,6 +99,10 @@ env GOOS=darwin GOARCH=amd64 go build -o ./godesktop main.go
 # Step 2B: Build the CLI for macOS (Garble)
 env GOOS=darwin GOARCH=amd64 garble build -o ./godesktop main.go
 
+# Step 3: CodeSign
+sudo xattr -r -d com.godesktop.builder ./godesktop
+sudo codesign --force --deep --sign - ./godesktop
+
 ======== Windows
 
 # Step 1A (Select one): Rebuild the Windows runner (Powershell)
