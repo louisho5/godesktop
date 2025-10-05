@@ -89,7 +89,7 @@ cd godesktop
 go install mvdan.cc/garble@latest
 
 ======== MacOS
-# Step 1A: Rebuild the MacOS runner (Zsh)
+# Step 1A: Rebuild the MacOS runner (Zsh/bash)
 env GOOS=darwin GOARCH=amd64 go build -o platforms/mac/runner/runner platforms/mac/runner/runner.go
 # Step 1B: Rebuild the MacOS runner (Garble)
 export PATH=$PATH:$(go env GOPATH)/bin
